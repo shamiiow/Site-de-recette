@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inscription</title>
+</head>
+<body>
+    <a href='index.php'><h1>INDEX</h1></a><br>
+    <h2>Inscription</h2>
+    <form action="traitement_inscription.php" method="post">
+        <label for="pseudo">Nom d'utilisateur:</label><br>
+        <input type="text" id="pseudo" name="pseudo" required><br><br>
+        
+        <label for="mdp">Mot de passe:</label><br>
+        <input type="password" id="mdp" name="mdp" required><br><br>
+        
+        <input type="submit" value="S'inscrire">
+    </form>
+</body>
+</html>

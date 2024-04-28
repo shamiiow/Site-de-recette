@@ -1,0 +1,88 @@
+.everything {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 100px auto auto auto auto;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    background-color: rgb(220, 220, 220);
+    padding: 10px;
+    }
+    
+    .titre { 
+        padding: 10px;
+        grid-area: 1 / 1 / 2 / 3; 
+        background-color: rgb(240, 240, 240);
+        margin: 10px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    .image { 
+        margin-top: auto;
+        margin-bottom: auto;
+        margin: 10px;
+        padding: 10px;
+        grid-area: 2 / 1 / 3 / 2; 
+        background-color: rgb(240, 240, 240);
+        
+        
+    }
+
+    .preparation { 
+        margin: 10px;
+        padding: 10px;
+        grid-area: 2 / 2 / 3 / 3; 
+        background-color: rgb(240, 240, 240);
+    }
+
+    .ingredient { 
+        margin: 10px;
+        padding: 10px;
+        grid-area: 3 / 1 / 4 / 2; 
+        background-color: rgb(240, 240, 240);
+    }
+
+    .ustensile{
+        margin: 10px;
+        padding: 10px;
+        grid-area: 3 / 2 / 4 / 3; 
+        background-color: rgb(240, 240, 240);
+
+    }
+
+    .etape { 
+        margin: 10px;
+        padding: 10px;
+        grid-area: 4 / 1 / 5 / 3; 
+        background-color: rgb(240, 240, 240);
+    }
+
+    .commentaire { 
+        padding: 10px;
+        margin: 10px;
+        grid-area: 5 / 1 / 6 / 3; 
+        background-color: rgb(240, 240, 240);
+    }
+
+.img{
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}
+
+img{
+    width: 200%;
+    max-width: 500px;
+    max-height: 10px;
+}
+
+body{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    
+    
+    
+}
+
+dl,p{
+    margin-left: 10px;
+}
