@@ -1,5 +1,5 @@
 <?php
-echo "<a href='.index.php'><h1>INDEX</h1></a><br>";
+echo "<a href='index.php'><h1>INDEX</h1></a><br>";
 session_start();
 require_once 'config.php';
 

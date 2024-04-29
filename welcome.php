@@ -1,25 +1,38 @@
 <?php
-echo "<a href='index.php'><h1>INDEX</h1></a><br>";
 session_start();
 require_once 'config.php';
 
+// Vérifier si l'utilisateur est connecté
 if(!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true){
     header('Location: login.php');
     exit;
 }
 
+// Récupérer l'identifiant de l'utilisateur connecté
 $idUtilisateur = $_SESSION['idUtilisateur'];
-$pseudo = $_SESSION['pseudo'];
+
+// Requête pour récupérer toutes les recettes de l'utilisateur connecté
+$query = "SELECT * FROM Recette WHERE idUtilisateur = :idUtilisateur";
+$stmt = $db->prepare($query);
+$stmt->bindParam(':idUtilisateur', $idUtilisateur);
+$stmt->execute();
+$recettes = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bienvenue</title>
+    <title>Page d'accueil</title>
 </head>
 <body>
-    <h2>Bienvenue, <?php echo $pseudo; ?>!</h2>
-    <p>C'est une page protégée. Seulement accessible aux utilisateurs connectés.</p>
-    <p><a href="logout.php">Déconnexion</a></p>
+    <h2>Bienvenue, <?php echo $_SESSION['pseudo']; ?>!</h2>
+    <h3>Vos recettes :</h3>
+    <ul>
+        <?php foreach($recettes as $recette) { ?>
+            <li><a href="recette.php?id=<?php echo $recette['idRecette']; ?>"><?php echo $recette['nom']; ?></a></li>
+        <?php } ?>
+    </ul>
+    <a href="logout.php">Se déconnecter</a>
 </body>
 </html>
+

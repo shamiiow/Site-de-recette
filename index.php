@@ -9,8 +9,9 @@
         <a href='index.php'><h1>INDEX</h1></a><br>
         <a href='ajoutDB.html'>ajoutDB</a><br>
         <a href='login.php'>login</a><br>
-        <a href='register.html'>register</a><br>
+        <a href='register.php'>register</a><br>
         <a href='recherches.php'>recherche</a><br>
+        <a href='welcome.php'>profil</a><br>
 
 
         <?php

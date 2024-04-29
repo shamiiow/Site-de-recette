@@ -1,20 +1,34 @@
 #------------------------------------------------------------
 #        Script MySQL.
 #-----------------------------------------------------------
+
+#------------------------------------------------------------
+# Table: Utilisateur
+#------------------------------------------------------------
+
+CREATE TABLE Utilisateur(
+        idUtilisateur Int AUTO_INCREMENT NOT NULL ,
+        pseudo    Varchar (50) NOT NULL ,
+    	mdp       Varchar (50) NOT NULL 
+	,CONSTRAINT Utilisateur_PK PRIMARY KEY (idUtilisateur)
+)ENGINE=InnoDB;
+
 #------------------------------------------------------------
 # Table: Recette
 #------------------------------------------------------------
 
-CREATE TABLE Recette(
-        idRecette  Int  Auto_increment  NOT NULL ,
-        nom        Varchar (50) NOT NULL ,
-        image_path Varchar (250) NOT NULL ,
-        tpsPrep    Float NOT NULL ,
-        tpsRep     Float NOT NULL ,
-        tpsCuis    Float NOT NULL,
-    	nbpersonne Int NOT NULL
-	,CONSTRAINT Recette_PK PRIMARY KEY (idRecette)
-)ENGINE=InnoDB;
+CREATE TABLE Recette (
+    idRecette INT AUTO_INCREMENT NOT NULL,
+    image_path Varchar (250) NOT NULL,
+    nbpersonne INT NOT NULL,
+    tpsPrep FLOAT NOT NULL,
+    tpsRep FLOAT NOT NULL,
+    tpsCuis FLOAT NOT NULL,
+    nom INT NOT NULL,
+    idUtilisateur INT NOT NULL,
+    CONSTRAINT Recette_PK PRIMARY KEY (idRecette),
+    CONSTRAINT Recette_Utilisateur_FK FOREIGN KEY (idUtilisateur) REFERENCES Utilisateur(idUtilisateur)
+) ENGINE=InnoDB;
 
 #------------------------------------------------------------
 # Table: Ustensiles
@@ -39,17 +53,6 @@ CREATE TABLE Etape(
 	,CONSTRAINT Etape_PK PRIMARY KEY (idEtape,numEtape,texte)
 
 	,CONSTRAINT Etape_Recette_FK FOREIGN KEY (idRecette) REFERENCES Recette(idRecette)
-)ENGINE=InnoDB;
-
-#------------------------------------------------------------
-# Table: Utilisateur
-#------------------------------------------------------------
-
-CREATE TABLE Utilisateur(
-        idUtilisateur Int AUTO_INCREMENT NOT NULL ,
-        pseudo    Varchar (50) NOT NULL ,
-    	mdp       Varchar (50) NOT NULL 
-	,CONSTRAINT Utilisateur_PK PRIMARY KEY (idUtilisateur)
 )ENGINE=InnoDB;
 
 #------------------------------------------------------------

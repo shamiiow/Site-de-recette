@@ -1,8 +1,17 @@
 <?php
-echo "<a href='index.php'><h1>INDEX</h1></a><br>";
 session_start();
-require_once 'config.php'; // Inclure le fichier de configuration de la base de données
 
+echo !isset($_SESSION['loggedin']);
+
+// Vérifier si l'utilisateur est connecté
+if (!isset($_SESSION['loggedin'])) {
+    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+    header('Location: login.php');
+    exit;
+}
+
+echo "<a href='index.php'><h1>INDEX</h1></a><br>";
+require_once 'config.php'; // Inclure le fichier de configuration de la base de données
 echo '<a href="index.php">Go back home<a><br>';
 
 // Connexion à la base de données
@@ -49,6 +58,7 @@ $etape = $_POST['etape'];
 $ustentile = $_POST['ustentile'];
 $tag = $_POST['tag'];
 $aliment = $_POST['aliment'];
+$idUtilisateur = $_SESSION['idUtilisateur'];
 
 echo $nom;
 
@@ -75,7 +85,7 @@ $uniqueFilename = uniqid('image_'); // Par exemple : image_abcdef123.jpg
 $imagePath = 'uploads/' . $uniqueFilename;
 
 // Insertion de la recette
-$sql = "INSERT INTO recette (nbpersonne, tpsPrep, tpsRep, tpsCuis, nom) VALUES ('$nbpersonne', '$tpsPrep', '$tpsRep','$tpsCuis', '$nom')";
+$sql = "INSERT INTO recette (nbpersonne, tpsPrep, tpsRep, tpsCuis, nom, idUtilisateur) VALUES ('$nbpersonne', '$tpsPrep', '$tpsRep','$tpsCuis', '$nom', '$idUtilisateur')";
 
 echo 'ajout recette';
 
