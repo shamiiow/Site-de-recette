@@ -8,7 +8,7 @@
 CREATE TABLE Recette(
         idRecette  Int  Auto_increment  NOT NULL ,
         nom        Varchar (50) NOT NULL ,
-        image_path        Varchar (50) NOT NULL ,
+        image_path Varchar (250) NOT NULL ,
         tpsPrep    Float NOT NULL ,
         tpsRep     Float NOT NULL ,
         tpsCuis    Float NOT NULL,

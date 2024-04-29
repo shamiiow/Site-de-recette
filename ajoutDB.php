@@ -68,9 +68,11 @@ $imageTmpName = $_FILES['image']['tmp_name'];
 $imageSize = $_FILES['image']['size'];
 $imageError = $_FILES['image']['error'];
 
-// Définir le répertoire de destination pour stocker les images
-$uploadDir = 'uploads/'; // Répertoire de destination pour stocker les images
-$imagePath = $uploadDir . $imageName; // Chemin complet de l'image sur le serveur
+// Générer un nom de fichier unique
+$uniqueFilename = uniqid('image_'); // Par exemple : image_abcdef123.jpg
+
+// Chemin complet de l'image sur le serveur avec le nouveau nom
+$imagePath = 'uploads/' . $uniqueFilename;
 
 // Insertion de la recette
 $sql = "INSERT INTO recette (nbpersonne, tpsPrep, tpsRep, tpsCuis, nom) VALUES ('$nbpersonne', '$tpsPrep', '$tpsRep','$tpsCuis', '$nom')";
@@ -87,7 +89,7 @@ if ($conn->query($sql) === TRUE) {
         // Déplacer l'image téléchargée vers l'emplacement de stockage sur le serveur
         if (move_uploaded_file($imageTmpName, $imagePath)) {
             // Insérer le chemin d'accès de l'image dans la base de données
-            $insertImagePathQuery = "INSERT INTO Recette (image_path) VALUES ('$imagePath')";
+            $insertImagePathQuery = "UPDATE Recette SET image_path = '$imagePath' WHERE idRecette = $idRecette";
             
             if ($conn->query($insertImagePathQuery) === TRUE) {
                 echo "Le chemin d'accès de l'image a été ajouté avec succès à la base de données.";
