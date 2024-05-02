@@ -20,11 +20,11 @@ CREATE TABLE Utilisateur(
 CREATE TABLE Recette (
     idRecette INT AUTO_INCREMENT NOT NULL,
     image_path Varchar (250) NOT NULL,
+    nom Varchar (250) NOT NULL,
     nbpersonne INT NOT NULL,
     tpsPrep FLOAT NOT NULL,
     tpsRep FLOAT NOT NULL,
     tpsCuis FLOAT NOT NULL,
-    nom INT NOT NULL,
     idUtilisateur INT NOT NULL,
     CONSTRAINT Recette_PK PRIMARY KEY (idRecette),
     CONSTRAINT Recette_Utilisateur_FK FOREIGN KEY (idUtilisateur) REFERENCES Utilisateur(idUtilisateur)
