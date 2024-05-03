@@ -25,36 +25,52 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $stmt->bindParam(':mdp', $mdp);
             $stmt->execute();
 
-            echo "Inscription réussie. Vous pouvez maintenant vous connecter.";
+            echo "<div class='main'>Inscription réussie. Vous pouvez maintenant vous connecter.</div>";
         } else {
             echo "Ce nom d'utilisateur est déjà pris. Veuillez en choisir un autre.";
         }
     } else {
         // Rediriger l'utilisateur si les données du formulaire ne sont pas définies
-        header('Location: ../index.php'); // Remplacez 'formulaire_inscription.php' par le chemin de votre formulaire d'inscription
+        header('Location: login.php'); // Remplacez 'formulaire_inscription.php' par le chemin de votre formulaire d'inscription
         exit;
     }
 }
 ?>
 
 <!DOCTYPE html>
-<html lang="fr">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <a href='index.php'><h1>INDEX</h1></a><br>
-    <h2>Inscription</h2>
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-        <label for="pseudo">Nom d'utilisateur:</label><br>
-        <input type="text" id="pseudo" name="pseudo" required><br><br>
-        
-        <label for="mdp">Mot de passe:</label><br>
-        <input type="password" id="mdp" name="mdp" required><br><br>
-        
-        <input type="submit" value="S'inscrire">
+
+    <?php if(isset($error)) { ?>
+        <p><?php echo $error; ?></p>
+    <?php } ?>
+
+    <div class="topbar">
+            <a href='index.php'><p>INDEX</p></a>
+            <a href='register.php'><p>REGISTER</p></a>
+            <a href='login.php'><p>LOGIN</p></a>
+            <a href='ajoutDB.html'><p>RECETTES</p></a>
+            <a href='recherches.php'><p>POSTER</p></a>
+        </div>
+
+    <div class="main">
+    <h2>Inscription</h2><br>
+    <form method="post" action="register.php">
+        <label>Nom d'utilisateur:</label>
+        <input type="text" name="pseudo"><br><br>
+        <label>Mot de passe:</label>
+        <input type="password" name="mdp"><br><br>
+        <input type="submit" value="S'inscrire" id="end">
+
     </form>
+    </div>
+
+    <div class="bgwrap">
+        <img src="registerBG.avif" alt="pizza">
+    </div>
 </body>
 </html>

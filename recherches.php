@@ -7,13 +7,28 @@
     <link href="style-recherches.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+<div class="bgwrap">
+        <img src="registerBG.avif" alt="pizza">
+    </div>
+    <?php if(isset($error)) { ?>
+        <p><?php echo $error; ?></p>
+    <?php } ?>
+
+    <div class="topbar">
+            <a href='index.php'><p>INDEX</p></a>
+            <a href='register.php'><p>REGISTER</p></a>
+            <a href='login.php'><p>LOGIN</p></a>
+            <a href='ajoutDB.html'><p>RECETTES</p></a>
+            <a href='recherches.php'><p>POSTER</p></a>
+        </div>
 <a href='index.php'><h1>INDEX</h1></a><br>
 <a href='ajoutDB.html'>ajoutDB</a><br>
 <a href='login.php'>login</a><br>
 <a href='register.php'>register</a><br>
 <a href='recherches.php'>recherche</a><br>
 <a href='welcome.php'>profil</a><br>
-
+<div>
+<div class='main'>
 <h2>Recherche de recettes :</h2>
 
 <form method="get" action="recherches.php">
@@ -102,6 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && (isset($_GET["text"]) || isset($_GET[
     }
 }
 ?>
+</div></div>
 
 </body>
 </html>

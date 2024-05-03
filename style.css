@@ -70,15 +70,233 @@
     align-items: center; 
 }
 
-img{
-    max-width: 500px;
-    max-height: 200px;
+body{
+    font-family: sans-serif;
 }
 
-body{
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+* {
+    margin: 0;
 }
 
 dl,p{
     margin-left: 10px;
+}
+
+.topbar {
+    background-color: #D90429;
+    position: fixed;
+    width: 100vw;
+    height: 15vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    overflow: hidden;
+    z-index: 1;
+    border-bottom: solid 3px #2B2D42;
+    top: 0;
+    border-bottom: solid 2px white;
+}
+
+.topbar p {
+    float: left;
+    color: #EDF2F4;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+    font-size: 20px;
+    z-index: 2;
+}
+
+.topbar p:hover {
+    background-color: rgb(0,0,0,0.3);
+}
+
+
+
+.bgwrap, .bgwrap img {
+    width: 100vw;
+    height: 99.6vh;
+    opacity: 85%;
+    z-index: -1;
+    margin: 0;
+    position: fixed;
+}
+
+
+.main {
+    background-color: #D90429;
+    z-index: 1;
+    text-align: center;
+    margin: auto;
+    border: solid 4px #EDF2F4;
+    color: #EDF2F4;
+    border-radius: 20px;
+    padding-left: 50px;
+    padding-right: 50px;
+    max-height: 60%; /* Adjust this value as needed */
+    overflow-y: auto; /* Add this to enable vertical scrolling if content exceeds max height */
+    margin: 0 auto;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+
+.liste_recette{
+    padding: 5px;
+    text-align: center !important;
+    line-height: 30px;
+}
+
+
+
+.main:not(#petitepizza) {
+    animation: fadeIn 0s;
+}
+
+.main h2{
+    margin-top: 20px;
+    text-align: center !important;
+}
+
+.main h3{
+    margin-top: 20px;
+    margin-bottom: 5px;
+    text-align: center !important;
+}
+
+#end {
+    margin-bottom: 20px;
+    text-align: center !important;
+}
+
+.main input {
+    background-color: rgb(0,0,0,0);
+    border: solid 1px white;
+    border-radius: 5px;
+    padding: 5px;
+    margin-right: 50px;
+    margin-left: 50px;
+    color: white;
+}
+
+#end:hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+#petitepizza {
+    position: absolute;
+    width: 50%;
+    top: -9vh;
+    right:-2vw;
+    transform: rotate(30deg);
+    animation:delayedFadeIn ease 3s
+}
+
+#page-accueil-body {
+    background-color: #2b2d42;
+}
+
+.titre {
+    margin: 0;
+    margin-top: 25vh ;
+    text-align: center;
+    background-color: red;
+    border-top: solid white 1px;
+    border-bottom: solid white 1px
+}
+
+.textes {
+    margin: 5px;
+    display: table;
+    margin-top: 15vh;
+    border-spacing: 5px;
+    margin-right: 1vw;
+}
+
+.texteaccueilun, .texteaccueildeux, .texteaccueiltrois {
+    display: table-cell;
+    text-align: center;
+    color: #edf2f4;
+    background-color: rgb(0,0,0,0.5);
+    border-radius: 5px;
+    border: solid white 1px;
+    padding-right: 5px;
+    padding-bottom: 5vh;
+
+}
+
+.texteaccueilun a, .texteaccueildeux a, .texteaccueiltrois a {
+    font-size: 1.2vw;
+    text-align: center;
+    border: solid 1px;
+    background-color: #D90429;
+    padding: 10px;
+    text-decoration: none;
+    color: white;
+    
+}
+
+.texteaccueilun a:hover, .texteaccueildeux a:hover, .texteaccueiltrois a:hover {
+    background-color: white;
+    color: black;
+}
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes delayedFadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    66% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#inscriptiontitre {
+    margin-top: 20vh;
+}
+
+.liste-recettes {
+    list-style:decimal-leading-zero
+}
+
+.tags-container {
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+}
+.tags-column {
+     /* Largeur de chaque colonne */
+    margin-right: 20px; /* Espacement entre les colonnes */
+    text-align: left !important;
+}
+::-webkit-scrollbar {
+    height: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 5px;
 }

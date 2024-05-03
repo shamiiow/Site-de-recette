@@ -1,7 +1,12 @@
 <?php
-echo "<a href='index.php'><h1>INDEX</h1></a><br>";
 session_start();
 require_once 'config.php';
+
+if (isset($_SESSION['loggedin'])) {
+    // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
+    header('Location: welcome.php');
+    exit;
+}
 
 if(isset($_POST['pseudo']) && isset($_POST['mdp'])) {
     $pseudo = $_POST['pseudo'];
@@ -31,18 +36,35 @@ if(isset($_POST['pseudo']) && isset($_POST['mdp'])) {
 <html>
 <head>
     <title>Connexion</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h2>Connexion</h2>
+
     <?php if(isset($error)) { ?>
         <p><?php echo $error; ?></p>
     <?php } ?>
-    <form method="post" action="">
+
+    <div class="topbar">
+            <a href='index.php'><p>INDEX</p></a>
+            <a href='register.php'><p>REGISTER</p></a>
+            <a href='login.php'><p>LOGIN</p></a>
+            <a href='ajoutDB.html'><p>RECETTES</p></a>
+            <a href='recherches.php'><p>POSTER</p></a>
+        </div>
+
+    <div class="main">
+    <h2>Connexion</h2><br>
+    <form method="post" action="login.php">
         <label>Nom d'utilisateur:</label>
         <input type="text" name="pseudo"><br><br>
         <label>Mot de passe:</label>
         <input type="password" name="mdp"><br><br>
-        <input type="submit" value="Se connecter">
+        <input type="submit" value="Se connecter" id="end">
     </form>
+    </div>
+
+    <div class="bgwrap">
+        <img src="registerBG.avif" alt="pizza">
+    </div>
 </body>
 </html>

@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-echo !isset($_SESSION['loggedin']);
-
 // Vérifier si l'utilisateur est connecté
 if (!isset($_SESSION['loggedin'])) {
     // Rediriger vers la page de connexion si l'utilisateur n'est pas connecté
