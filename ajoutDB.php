@@ -207,4 +207,7 @@ if ($conn->query($sql) === TRUE) {
 
 // Fermeture de la connexion à la base de données
 $conn->close();
+
+header('Location: recette.php?id='.$idRecette);
+    exit;
 ?>

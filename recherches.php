@@ -21,13 +21,8 @@
             <a href='ajoutDB.html'><p>RECETTES</p></a>
             <a href='recherches.php'><p>POSTER</p></a>
         </div>
-<a href='index.php'><h1>INDEX</h1></a><br>
-<a href='ajoutDB.html'>ajoutDB</a><br>
-<a href='login.php'>login</a><br>
-<a href='register.php'>register</a><br>
-<a href='recherches.php'>recherche</a><br>
-<a href='welcome.php'>profil</a><br>
-<div>
+
+<div class='abso' >
 <div class='main'>
 <h2>Recherche de recettes :</h2>
 
@@ -35,7 +30,7 @@
     <label for="text">Recherche par texte :</label><br>
     <input type="text" id="text" name="text"><br><br>
     
-    <h3>Sélectionnez des tags pour la recherche :</h3>
+    <h3>Sélectionnez des tags pour la recherche :</h3><br>
     <div class="tags-container">
         <?php
         // Connexion à la base de données
@@ -63,7 +58,7 @@
         ?>
     </div>
     <br>
-    <input type="submit" value="Rechercher">
+    <input type="submit" value="Rechercher" id="end">
 </form>
 
 <?php
@@ -106,7 +101,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET" && (isset($_GET["text"]) || isset($_GET[
             echo "<h2>Résultats de la recherche :</h2>";
             echo "<ul>";
             while ($row = $result->fetch_assoc()) {
-                echo "<li><a href='recette.php?id=" . $row['idRecette'] . "'>" . $row['nom'] . "</a></li>"; // Ajout du lien vers la page de la recette
+                echo "<li><a href='recette.php?id=" . $row['idRecette'] . "'>Recette : " . $row['nom'] . "</a></li>"; // Ajout du lien vers la page de la recette
             }
             echo "</ul>";
         } else {

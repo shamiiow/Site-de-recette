@@ -8,8 +8,17 @@
     <link href="style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<a href='index.php'><h1>INDEX</h1></a><br>
-    <?php
+<div class="topbar">
+            <a href='index.php'><p>INDEX</p></a>
+            <a href='register.php'><p>REGISTER</p></a>
+            <a href='login.php'><p>LOGIN</p></a>
+            <a href='ajoutDB.html'><p>RECETTES</p></a>
+            <a href='recherches.php'><p>POSTER</p></a>
+        </div>
+        <div class="bgwrap">
+        <img src="registerBG.avif" alt="pizza">
+    </div>
+<?php
     session_start();
     require_once 'config.php'; // Inclure le fichier de configuration de la base de données
 // Connexion à la base de données
@@ -57,13 +66,11 @@ if (isset($_GET['id']) && is_numeric($_GET['id'])) {
     $result = $conn->query($sql);
 }
 
-
-
 if ($result->num_rows > 0) {
     $row = $result->fetch_assoc();
     $tpsTotal = (int)$row["tpsPrep"]+(int)$row["tpsCuis"]+(int)$row["tpsRep"];
     echo '<div class="everything">';
-    echo '<div class="titre"> ';
+    echo '<div class="titre-recette"> ';
     echo '    <p>' . $row['nom'] . '</p>';
     echo '</div>';
     echo '       <div class="image"> ';

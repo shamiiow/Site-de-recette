@@ -125,6 +125,13 @@ dl,p{
 }
 
 .abso{
+    margin-top:15vh;
+    
+
+}
+
+.main {
+    width:60%;
     border-radius: 20px;
     padding-left: 50px;
     padding-right: 50px;
@@ -132,20 +139,15 @@ dl,p{
     overflow-y: auto; /* Add this to enable vertical scrolling if content exceeds max height */
     margin: 0 auto;
     text-align: center;
-
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-
-}
-
-.main {
     background-color: #D90429;
     z-index: 1;
     text-align: center;
     margin: auto;
     border: solid 4px #EDF2F4;
     color: #EDF2F4;
+    padding-bottom: 50px;
     
 }
 
@@ -171,6 +173,7 @@ dl,p{
     margin-top: 20px;
     margin-bottom: 5px;
     text-align: center !important;
+    background-color: rgb(0, 0, 0,0)!important;
 }
 
 #end {
@@ -287,31 +290,37 @@ dl,p{
     overflow-x: auto;
     white-space: nowrap;
     display: flex;
+
+    justify-content: center;
 }
 .tags-column {
+    background-color: #a8031f;
+    
      /* Largeur de chaque colonne */
     margin-right: 20px; /* Espacement entre les colonnes */
     text-align: left !important;
     border-radius: 20px;
-    padding-left: 50px;
-    padding-right: 50px;
+    border-radius: 0cm;
+    padding: 10px;
+    border: solid;
+    border-color: #750115;
 
-    overflow-y: auto; /* Add this to enable vertical scrolling if content exceeds max height */
-    margin: 0 auto;
+    margin: 5px;
+
     text-align: center;
-
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+
+
+
 }
-::-webkit-scrollbar {
-    height: 10px;
+
+.main a {
+    text-decoration: none;
+    color: #EDF2F4;
 }
-::-webkit-scrollbar-thumb {
-    background: #888;
-    border-radius: 5px;
-}
-::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 5px;
+
+.main a:hover {
+    color: black;
+    font-size: 1.1vw;
 }
